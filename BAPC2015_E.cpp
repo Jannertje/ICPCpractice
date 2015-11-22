@@ -35,10 +35,10 @@ int poss(int x, int y, int moves) {
   if (board[x][y] != -1 )
     return board[x][y];
 
-  //int x_off[] = {-1, 0, 1, -1, 1, -1 , 0, 1};
-  //int y_off[] = {1, 1, 1, 0, 0, -1 , -1, -1};
-  int x_off[]  = {1, 1, 1};
-  int y_off[] =  {-1, 0, 1};
+  int x_off[] = {-1, 0, 1, -1, 1, -1 , 0, 1};
+  int y_off[] = {1, 1, 1, 0, 0, -1 , -1, -1};
+  //int x_off[]  = {1, 1, 1};
+  //int y_off[] =  {-1, 0, 1};
   int ans = 0;
   for (int i = 0; i < 3; i++) {
     ans += poss(x + x_off[i], y + y_off[i], moves - 1);

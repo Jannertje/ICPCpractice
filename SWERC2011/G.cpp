@@ -10,12 +10,12 @@
 
 #define INF 2000000000
 using namespace std;
-
+#define MAX 1000000
+int A[MAX];
+int acc[MAX], leastl[MAX], leasth[MAX];
 int main() {
   int N;
   while( cin >> N && N > 0) {
-    int A[N];
-    int acc[N], leastl[N], leasth[N];
     cin >> A[0];
     acc[0] = A[0];
     leastl[0] = acc[0];
@@ -31,8 +31,11 @@ int main() {
 
     int cnt = 0;
     for( int n = 0; n < N; n++) {
-      if( leasth[n] >= (n == 0 ? 0 : acc[n-1])) {
-        if( acc[N] - (n==0?0:acc[n-1]) >= -leastl[n+1]) {
+      if(n == 0) {
+        if(leasth[n] >= 0 && acc[N-1] >= 0)
+          cnt++;
+      } else if( leasth[n] >= acc[n-1]) {
+        if( acc[N-1] - acc[n-1] + leastl[n-1]>=0) {
           cnt++;
         }
       }
